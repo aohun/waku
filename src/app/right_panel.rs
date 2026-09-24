@@ -1450,6 +1450,9 @@ mod tests {
         let helper_body = &helper_body[..helper_end];
         assert!(helper_body.contains("stage_daemon_path_attachment"));
         assert!(!helper_body.contains("stage_attachment_paths"));
+
+        let composer = include_str!("composer.rs");
+        assert!(composer.contains("Command::ImportPathAttachment"));
     }
 
     /// Same guard for the file editor, which `render_right_panel_file` reaches
