@@ -31,7 +31,7 @@ fn working_tree_context_menu_items(
         }),
         MenuItem::new(tr!("files.add_to_chat"), move |_, cx| {
             let _ = waku.update(cx, |waku, cx| {
-                waku.stage_daemon_path_attachment(add_path, cx);
+                waku.stage_daemon_path_attachment(add_path.clone(), cx);
             });
         }),
     ]
@@ -2865,6 +2865,7 @@ impl Waku {
                     }));
             } else {
                 let open_path = relative_path.clone();
+                let click_path = relative_path.clone();
                 row = row
                     .on_key_down(cx.listener(move |this, event: &KeyDownEvent, window, cx| {
                         let key = event.keystroke.key.as_str();
@@ -2877,7 +2878,7 @@ impl Waku {
                         }
                     }))
                     .on_click(cx.listener(move |this, _, _, cx| {
-                        this.open_right_panel_file(relative_path.clone(), cx);
+                        this.open_right_panel_file(click_path.clone(), cx);
                     }));
             }
             let menu_path = entry.absolute_path.clone();
