@@ -1453,7 +1453,7 @@ function ActivityGroup({
         <WakuIcon className="size-2.5 shrink-0" name={expanded ? 'chevronDown' : 'chevronRight'} />
       </button>
       {expanded && (
-        <div className="ml-1.5 flex min-w-0 flex-col gap-2 border-l pb-0.5 pl-3">
+        <div className="flex min-w-0 flex-col gap-2 pb-0.5">
           {activities.map((activity) => (
             <ActivityRow
               activity={activity}

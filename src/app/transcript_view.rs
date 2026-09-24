@@ -1969,14 +1969,13 @@ impl Waku {
         let activity_surface = theme.surface.blend(theme.overlay.opacity(0.7));
         let activity_hover_surface = theme.surface.blend(theme.overlay);
         let activity_active_surface = theme.surface.blend(theme.overlay_strong.opacity(0.72));
+        // Full content-column width so the activity cards share a right edge
+        // with the composer below. A left tree indent here made the cards
+        // narrower than the dialog with no matching right inset.
         let mut items = div()
             .w_full()
             .min_w_0()
-            .ml(px(6.0))
-            .pl(px(12.0))
             .pb(px(2.0))
-            .border_l_1()
-            .border_color(theme.border)
             .flex()
             .flex_col()
             .gap(px(8.0));
